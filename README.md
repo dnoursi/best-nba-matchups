@@ -4,7 +4,15 @@ This project parses a complete CSV of games to identify the best matchups of the
 
 ## How to customize
 
-Customize this repo by changing the team names and "scores" in `goodteams.csv`. A team with a higher "score" is considered more interesting. Then each matchup is a given a score, and the matchups are sorted into tiers by how interesting you decided each should be. Then the result is written to `result.md`.
+Customize this repo by changing the team names and "scores" in `goodteams.csv`. A team with a higher "score" is considered more interesting. Then each matchup is a given a score, and the matchups are sorted into tiers by how interesting you decided each should be.
+
+After customizing `goodteams.csv`, run the project as follows
+
+```
+python3 process.py
+```
+
+You can then find your custom schedule written to `result.md`.
 
 ## Thanks
 
