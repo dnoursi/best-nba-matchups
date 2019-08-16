@@ -4,7 +4,7 @@ This project parses a complete CSV of games to identify the best matchups of the
 
 ## How to customize
 
-Customize this repo by changing the team names and "scores" in `goodteams.csv`. A team with a higher "score" is considered more interesting. Then each matchup is a given a score, and the matchups are sorted into tiers by how interesting you decided each should be.
+Customize this repo by changing the team names and "scores" in `goodteams.csv`. A team with a higher score is considered to have more interesting games; use any positive number for a team's score. From this file, each matchup is a given a score, and the matchups are sorted into tiers by how interesting you decided each should be.
 
 After customizing `goodteams.csv`, run the project as follows
 
