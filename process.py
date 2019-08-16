@@ -28,14 +28,17 @@ def mydate(datestr):
     return datetime.strptime(datestr, "%d/%m/%Y %H:%M" ).strftime("%A, %B %d, %I:%M %p")
 
 def pprint(od):
-    print(mydate(od["Date"]) + ": " + od["Away Team"] + " @ " + od["Home Team"])
+    return (mydate(od["Date"]) + ": " + od["Away Team"] + " @ " + od["Home Team"])
 
-def pprints(ls, adj):
-    print("These are the " + adj + " matchups of the season:")
+def pprints(ls, adj, f):
+    f.write("These are the " + adj + " matchups of the season:\n")
     for l in ls:
-        pprint(l)
-    print("")
+        f.write(pprint(l))
+        f.write("\n")
+    f.write("\n")
 
+writefile = open("results.md", "w")
 for n, tier in enumerate(tiers):
-    pprints(tier, "tier"+ str(n+1))
-
+    print("There are " + str(len(tier)) + " games in tier" + str(n+1))
+    pprints(tier, "tier"+ str(n+1), writefile)
+print("Your customized schedule is printed in results.md")

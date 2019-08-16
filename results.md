@@ -1,6 +1,3 @@
-The final output of this repo:
-
-```
 These are the tier1 matchups of the season:
 Tuesday, October 22, 07:30 PM: Los Angeles Lakers @ LA Clippers
 Thursday, October 24, 05:00 PM: Milwaukee Bucks @ Houston Rockets
@@ -163,4 +160,4 @@ Thursday, March 12, 07:30 PM: Brooklyn Nets @ Golden State Warriors
 Sunday, March 15, 06:00 PM: Brooklyn Nets @ Sacramento Kings
 Saturday, March 21, 03:00 PM: Boston Celtics @ Brooklyn Nets
 Wednesday, April 15, 07:00 PM: Golden State Warriors @ Sacramento Kings
-```
+
