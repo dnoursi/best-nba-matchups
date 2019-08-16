@@ -16,11 +16,11 @@ teamNameDict = {t[0]:t[1] for t in goodTeams}
 goodGameis = []
 for i, matchup in enumerate(matchups):
     if matchup.issubset( goodTeamNames):
-        goodGameis.append((i, sum(map(lambda y:int(teamNameDict[y]), matchup))))
+        goodGameis.append((i, sum(map(lambda y:float(teamNameDict[y]), matchup))))
 
-tier1 = [games[t[0]] for t in goodGameis if t[1] == 4]
-tier2 = [games[t[0]] for t in goodGameis if t[1] == 3]
-tier3 = [games[t[0]] for t in goodGameis if t[1] == 2]
+tierScores = list(set([t[1] for t in goodGameis]))
+tierScores.sort(reverse=True)
+tiers = [ [games[t[0]] for t in goodGameis if t[1] == score] for score in tierScores]
 
 # https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
 from datetime import datetime
@@ -36,8 +36,6 @@ def pprints(ls, adj):
         pprint(l)
     print("")
 
-
-pprints(tier1, "tier1")
-pprints(tier2, "tier2")
-pprints(tier3, "tier3")
+for n, tier in enumerate(tiers):
+    pprints(tier, "tier"+ str(n+1))
 
