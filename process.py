@@ -38,7 +38,10 @@ def pprints(ls, adj, f):
     f.write("\n")
 
 writefile = open("results.md", "w")
+writefile.write("```\n")
 for n, tier in enumerate(tiers):
     print("There are " + str(len(tier)) + " games in tier" + str(n+1))
     pprints(tier, "tier"+ str(n+1), writefile)
 print("Your customized schedule is printed in results.md")
+writefile.write("```\n")
+writefile.close()
