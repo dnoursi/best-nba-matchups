@@ -19,7 +19,7 @@ for i, matchup in enumerate(matchups):
         goodGameis.append((i, sum(map(lambda y:float(teamNameDict[y]), matchup))))
 
 tierScores = list(set([t[1] for t in goodGameis]))
-tierScores.sort(reverse=True)
+tierScores.sort(reverse=False)
 tiersMap = {score:int(i+1) for i,score in enumerate(tierScores)}
 maxStars = len(tiersMap) + 1
 
