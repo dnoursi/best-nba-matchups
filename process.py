@@ -20,28 +20,25 @@ for i, matchup in enumerate(matchups):
 
 tierScores = list(set([t[1] for t in goodGameis]))
 tierScores.sort(reverse=True)
-tiers = [ [games[t[0]] for t in goodGameis if t[1] == score] for score in tierScores]
+tiersMap = {score:int(i+1) for i,score in enumerate(tierScores)}
+maxStars = len(tiersMap) + 1
 
 # https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
 from datetime import datetime
 def mydate(datestr):
     return datetime.strptime(datestr, "%d/%m/%Y %H:%M" ).strftime("%A, %B %d, %I:%M %p")
 
-def pprint(od):
-    return (mydate(od["Date"]) + ": " + od["Away Team"] + " @ " + od["Home Team"])
-
-def pprints(ls, adj, f):
-    f.write("These are the " + adj + " matchups of the season:\n")
-    for l in ls:
-        f.write(pprint(l))
-        f.write("\n")
-    f.write("\n")
+def pprint(od, nstars, mstars):
+    return (("*"*nstars) + (" "*(mstars-nstars))  + "| " + mydate(od["Date"]) + ": " + od["Away Team"] + " @ " + od["Home Team"])
 
 writefile = open("results.md", "w")
 writefile.write("```\n")
-for n, tier in enumerate(tiers):
-    print("There are " + str(len(tier)) + " games in tier" + str(n+1))
-    pprints(tier, "tier"+ str(n+1), writefile)
+for gamei, score in goodGameis:
+    nstars = tiersMap[score]
+    writefile.write(pprint(games[gamei], tiersMap[score], maxStars))
+    writefile.write("\n")
 print("Your customized schedule is printed in results.md")
 writefile.write("```\n")
 writefile.close()
+
+
