@@ -16,4 +16,4 @@ You can then find your custom schedule written to `result.md`.
 
 ## Thanks
 
-The CSV file `allgames.csv` was downloaded from Fixture Download [at this URL](https://fixturedownload.com/results/nba-2019), many thanks to Fixture Download!
+The CSV file `allgames.csv` was downloaded from Fixture Download [at this URL](https://fixturedownload.com/results/nba-2019), thanks to Fixture Download!
