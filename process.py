@@ -42,7 +42,7 @@ def pprint(od, nstars, mstars):
 
     starString = colorHtml("&#9733" * nstars, color)
 
-    pStr = (starString + ("&nbsp"*(mstars-nstars)) + mydate(od["Date"]) + ": " + od["Away Team"] + " @ " + od["Home Team"])
+    pStr = (starString + ("&nbsp"*2*(mstars-nstars)) + mydate(od["Date"]) + ": " + od["Away Team"] + " @ " + od["Home Team"])
 
     result = htmlP(pStr)
     return result
