@@ -12,7 +12,9 @@ After customizing `goodteams.csv`, run the project as follows
 python3 process.py
 ```
 
-You can then find your custom schedule written to `result.md`.
+You can then find your custom schedule written to `result.html`.
+
+To view this compiled, you can use [HTML Preview](http://htmlpreview.github.io/?https://github.com/dnoursi/best-nba-matchups/blob/master/results.html).
 
 ## Thanks
 
