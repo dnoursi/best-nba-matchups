@@ -28,17 +28,37 @@ from datetime import datetime
 def mydate(datestr):
     return datetime.strptime(datestr, "%d/%m/%Y %H:%M" ).strftime("%A, %B %d, %I:%M %p")
 
-def pprint(od, nstars, mstars):
-    return (("*"*nstars) + (" "*(mstars-nstars))  + "| " + mydate(od["Date"]) + ": " + od["Away Team"] + " @ " + od["Home Team"])
+def colorHtml(textStr, colorStr):
+    return "<font color=\"" + colorStr + "\">" + textStr + "</font>"
 
-writefile = open("results.md", "w")
-writefile.write("```\n")
+# <p> in HTML
+def pprint(od, nstars, mstars):
+    if nstars == 3:
+        color = "red"
+    elif nstars == 2:
+        color = "orange"
+    else:
+        color = "black"
+
+    starString = colorHtml("&#9733" * nstars, color)
+
+    pStr = (starString + ("&nbsp"*(mstars-nstars)) + mydate(od["Date"]) + ": " + od["Away Team"] + " @ " + od["Home Team"])
+
+    result = htmlP(pStr)
+    return result
+
+def htmlP(pText):
+    return "<p style=\"font-family: Courier New\">" + pText + "</p>"
+
+
+writefile = open("results.html", "w")
+#writefile.write("```\n")
 for gamei, score in goodGameis:
     nstars = tiersMap[score]
     writefile.write(pprint(games[gamei], tiersMap[score], maxStars))
     writefile.write("\n")
-print("Your customized schedule is printed in results.md")
-writefile.write("```\n")
+print("Your customized schedule is printed in results.html")
+#writefile.write("```\n")
 writefile.close()
 
 
